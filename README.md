@@ -3,8 +3,6 @@
 
 ##Projekt - MyTime##
 
-### http://as223my.github.io/1DV430_as223my/
-
 ### Vision 
 Tillagd i pdf-format som release 2014-04-13.
 
