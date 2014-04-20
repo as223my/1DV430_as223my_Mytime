@@ -14,12 +14,22 @@
     
 	        <header>
 	         
-	            <h1>Välkommen!</h1>
+	            <h1>MyTime!</h1>
 	            
 	        </header>
 	        
-	        <a href="html/Januari.html">Gå till Kalender</a>
-        
+	      	<form action="html/Januari.html" id ="form" method="POST">
+                    
+	            <p class="login"><label for="namn">Användarnamn</label></p>
+	            <input type="text" id="namn" name="Användarnamn" />
+	                    
+	            <p class="login"><label for="lösen">Lösenord</label></p>
+	            <input type="text" id="lösen" name="Lösenord" />
+	   
+	            <p><input type="submit" id="sub" value="Logga in" /></p>
+            
+        	</form>
+	        
     	</div> 
        
     </body>
