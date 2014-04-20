@@ -1,3 +1,54 @@
+#container{
+	width:auto;
+	margin-top:3%;
+	text-align:center;
+}
+
+#dagar{
+	width:80%;
+	margin-left:12%;
+	overflow: auto;
+	text-align:left;
+}
+
+.dag{
+	margin:1%;
+	width:10%;
+	height:80px;
+	border:1px solid black;
+	float:left;
+}
+
+.dag p{
+	padding-left:5%;
+	color:#08644D;
+	font-family: 'Montaga';
+	font-weight:bold;
+}
+
 h1{
-	color:red;
+	font-family: 'Tangerine';
+	font-size:500%;
+	color:#800000;
+}
+
+.right{
+	margin-top:-100px;
+	margin-right:4%;
+	float:right;
+	font-size:700%;
+	font-family: 'Tangerine';
+	color:#800000;
+	text-decoration:none;
+
+}
+
+.left{
+	margin-top:-100px;
+	margin-left:4%;
+	float:left;
+	font-size:700%;
+	font-family: 'Tangerine';
+	color:#800000;
+	text-decoration:none;
 }
