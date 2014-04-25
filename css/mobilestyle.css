@@ -43,19 +43,17 @@ h1{
 	
 #LoginMyTime{
 	font-family: 'Tangerine';
-	font-size:600%;
+	font-size:500%;
 	color:#800000;
-	padding-top:20px;
 	}
 
 .login{
 	font-family: 'Montaga';
 	font-weight:bold;
-	font-size:200%;	
+	font-size:150%;	
+	margin-bottom:0;
 	}	
-input{
-	width:400px;
-}
+
 #sub{
 	font-family: 'Montaga';
 	color:#800000;
@@ -63,6 +61,10 @@ input{
 	font-weight:bold;
 	border:1px solid black;
 	}
+	
+input#namn, input#lösen{
+	width:80%;
+}
 
 
 /* Menyn */
