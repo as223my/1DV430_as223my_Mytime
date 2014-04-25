@@ -1,6 +1,10 @@
 #menu
 {display:none;}
 
+#hidden{
+	visibility:hidden;
+}
+
 html{
 	height:100%;
 }
