@@ -18,15 +18,15 @@ body{
 
 .dag{
 	margin:2px;
-	width:100px;
-	height:80px;
+	width:80px;
+	height:70px;
 	border:1px solid black;
 	float:left;
 	background-color:white;
 }
 
 .dag p{
-	margin-top:-2px;
+	margin-top:-1px;
 	padding-left:2px;
 	color:#08644D;
 	font-family: 'Montaga';
