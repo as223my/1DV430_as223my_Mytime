@@ -40,13 +40,22 @@ h1{
 	color:#800000;
 	padding-top:20px;
 	}
-
+	
+#LoginMyTime{
+	font-family: 'Tangerine';
+	font-size:600%;
+	color:#800000;
+	padding-top:20px;
+	}
 
 .login{
 	font-family: 'Montaga';
-	font-weight:bold;	
+	font-weight:bold;
+	font-size:200%;	
 	}	
-
+input{
+	width:400px;
+}
 #sub{
 	font-family: 'Montaga';
 	color:#800000;
