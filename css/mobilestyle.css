@@ -2,10 +2,13 @@
 {display:none;}
 
 body{
+	height:100%;
+	position:relative;
 	background-image:url(../pictures/bakgrund.png);
 	}
 
 #container{
+	border: 1px solid rgba(0, 0, 0, 0);
 	width:auto;
 	text-align:center;
 	}
@@ -14,7 +17,7 @@ body{
 	margin-top:-20px;
 	width:100%;
 	text-align:left;
-	position:relative;
+	overflow: auto;
 	}
 
 .dag{
