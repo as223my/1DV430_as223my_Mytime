@@ -5,16 +5,17 @@
 	visibility:hidden;
 }
 
-html{
-	height:100%;
-}
+
 
 body{
-	background-image:url(../pictures/bakgrund.png);
+	height:100%;
+	position:relative;
+	background-image:url(../pictures/bakgrund.png);	
 }
+
 #container{
+	border: 1px solid rgba(0, 0, 0, 0);
 	width:auto;
-	margin-top:3%;
 	text-align:center;
 }
 
@@ -84,7 +85,7 @@ h1{
 	
 }
 
-#sub{
+.sub{
 	margin-top:20px;
 	font-family: 'Montaga';
 	color:#800000;
@@ -92,8 +93,64 @@ h1{
 	padding:0.4%;
 	font-weight:bold;
 	border:1px solid black;
+	background-color: #F0F0F0;
 }
 
 input#namn, input#lösen{
 	width:250px;
+}
+
+#modal{
+   	visibility: hidden;
+   	position: absolute;
+ 	left:0;
+    top:0;
+    right:0;
+    bottom:0;
+   	width:100%;
+   	height: 100%;
+  	z-index:1;
+   	background-color:rgba(192,192,192,0.3);
+
+   
+}
+
+#modalcontent{
+	padding-left:10px;
+     width:450px;
+     height:400px;
+     margin-top:250px;
+     margin-left:auto;
+     margin-right:auto;
+     border:5px solid #800000;
+     background-color:rgba(255,255,255,1.0);
+
+     
+}
+
+input#titel{
+	width:200px;
+}
+#titel1{
+	margin-top:-1px;
+}
+
+#textarea{
+	width:430px;
+	height:230px
+}
+
+#spara{
+	margin-top:-10px;
+	margin-left:200px;
+}
+
+#close{
+	margin-left:427px;
+	margin-top:-2px;
+	background-color:#800000;
+	border: 1px solid #800000;
+	color:white;
+	font-weight: bold;
+	
 }
