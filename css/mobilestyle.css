@@ -13,14 +13,14 @@ body{
 	text-align:center;
 	}
 
-#dagar{
+#daysDiv{
 	margin-top:-20px;
 	width:100%;
 	text-align:left;
 	overflow: auto;
 	}
 
-.dag{
+.day{
 	margin:2px;
 	width:90px;
 	height:70px;
@@ -29,7 +29,7 @@ body{
 	background-color:white;
 	}
 
-.dag p{
+.day p{
 	margin-top:-1px;
 	padding-left:2px;
 	color:#08644D;
@@ -107,16 +107,16 @@ nav a:active{
 	}	
 	
 /* Visar innehåll i Månad */        
-.val li > a, .val li > p{
+.choiceMonth li > a, .choiceMonth li > p{
     display:none;
     }
 
-.val:hover li > a, .val:hover li > p{
+.choiceMonth:hover li > a, .choiceMonth:hover li > p{
     display:inherit;
     background-color: #F0F0F0;
     }
     
-#modal{
+#popUp{
    	visibility: hidden;
    	position: absolute;
  	left:0;
@@ -131,7 +131,7 @@ nav a:active{
    
 }
 
-#modalcontent{
+#popUpContent{
 	padding-left:10px;
      width:90%;
      height:400px;
@@ -168,3 +168,11 @@ input#titel{
 	font-weight: bold;
 	
 }
+
+#dayId{
+	margin-top:-10px;
+	color:#08644D;
+	font-family: 'Montaga';
+	font-size:12px;
+}
+

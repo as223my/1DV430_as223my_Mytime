@@ -23,7 +23,7 @@
 	        
 		   	<nav id ="menu">
 		        <ul>
-			  		<li class ="val"><a href="#">Månad</a>
+			  		<li class ="choiceMonth"><a href="#">Månad</a>
 			  		 	<ul>
 				            <li><a href="Januari.html">Januari</a></li>
 				            <li><a href="Februari.html">Februari</a></li>
@@ -42,53 +42,21 @@
 		      	</ul>
 		  	</nav>
 	            
-	        <div id="dagar">
-		        <div id="Jul1"class="dag"><p>1</p></div>
-		        <div id="Jul2"class="dag"><p>2</p></div>
-		        <div id="Jul3"class="dag"><p>3</p></div>
-		        <div id="Jul4"class="dag"><p>4</p></div>
-		        <div id="Jul5"class="dag"><p>5</p></div>
-		        <div id="Jul6"class="dag"><p>6</p></div>
-		        <div id="Jul7"class="dag"><p>7</p></div>
-		        <div id="Jul8"class="dag"><p>8</p></div>
-		        <div id="Jul9"class="dag"><p>9</p></div>
-		        <div id="Jul10"class="dag"><p>10</p></div>
-		        <div id="Jul11"class="dag"><p>11</p></div>
-		        <div id="Jul12"class="dag"><p>12</p></div>
-		        <div id="Jul13"class="dag"><p>13</p></div>
-		        <div id="Jul14"class="dag"><p>14</p></div>
-		        <div id="Jul15"class="dag"><p>15</p></div>
-		        <div id="Jul16"class="dag"><p>16</p></div>
-		        <div id="Jul17"class="dag"><p>17</p></div>
-		        <div id="Jul18"class="dag"><p>18</p></div>
-		        <div id="Jul19"class="dag"><p>19</p></div>
-		        <div id="Jul20"class="dag"><p>20</p></div>
-		        <div id="Jul21"class="dag"><p>21</p></div>
-		        <div id="Jul22"class="dag"><p>22</p></div>
-		        <div id="Jul23"class="dag"><p>23</p></div>
-		        <div id="Jul24"class="dag"><p>24</p></div>
-		        <div id="Jul25"class="dag"><p>25</p></div>
-		        <div id="Jul26"class="dag"><p>26</p></div>
-		        <div id="Jul27"class="dag"><p>27</p></div>
-		        <div id="Jul28"class="dag"><p>28</p></div>
-		        <div id="Jul29"class="dag"><p>29</p></div>
-		        <div id="Jul30"class="dag"><p>30</p></div>
-		        <div id="Jul31"class="dag"><p>31</p></div>
-	        </div>
+	        <div id="daysDiv"></div>
         
     	</div> 
     	
-    	<div id="modal">
-    		<div id ="modalcontent">
-    		
+    	<div id="popUp">
+    		<div id ="popUpContent">
     			<button type="button" id="close">X</button>
     		    <p class="login"><label for="titel">Titel</label></p>
 	            <input type="text" id="titel" name="Title" />
 	          	<p><textarea id ="textarea"></textarea></p>
     			<button type="button" id="spara" class="sub">Spara</button>
+    			<p id ="dayId"></p>
    			</div>
    		</div>
-    	<script src="../javascript/run_script.js"></script>
-    	
-       
+   		<script src="../javascript/popUp.js"></script>
+   		<script src="../javascript/days.js"></script>
+    	<script src="../javascript/script.js"></script>
     </body>
