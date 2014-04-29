@@ -4,14 +4,12 @@
 #hidden{
 	visibility:hidden;
 }
-html{
-	height:100%;
-}
+
 body{
 	height:100%;
 	position:relative;
-	background-image:url(../pictures/bakgrund.png);	
-}
+	background-image:url(../pictures/bakgrund.png);
+	}
 
 #container{
 	border: 1px solid rgba(0, 0, 0, 0);
