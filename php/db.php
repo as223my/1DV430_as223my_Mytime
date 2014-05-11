@@ -2,8 +2,9 @@
 
 try{
 	//connecta local database med username root & password (finns inget).
-	$handler = new PDO('mysql:host=127.0.0.1;dbname=mytime','root','');
-	$handler ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$connect = new PDO('mysql:host=127.0.0.1;dbname=mytime','root','');
+	//$connect = new PDO('mysql:host=mysql13.000webhost.com;dbname=a4209638_mytime','a4209638_mytime','pontiac76');
+	$connect ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 }catch(PDOException $e){
 	

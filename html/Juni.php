@@ -1,3 +1,20 @@
+<?php
+	
+session_start();
+
+if($_SESSION['username']){
+}else{
+	header('Location: ../index.php');
+}
+
+
+if(isset($_POST['logout'])){
+	session_destroy();
+	header('Location: ../index.php');
+}
+
+?>
+
 <!doctype html>
 <html lang="sv">
     <head>
@@ -18,9 +35,10 @@
 	       		<h1>Juni - 2014</h1>
 
 	       	</header>
+	       	<form action = '' method="post"><input type="submit" name="logout" id="Logout" class = "sub" value="Logga ut"></form>
 	       	
-	        <a href="Juli.html" class="right">></a>
-	        <a href="Maj.html" class="left">&lt</a>
+	        <a href="Juli.php" class="right">></a>
+	        <a href="Maj.php" class="left">&lt</a>
 	        
 		   	<nav id ="menu">
 		        <ul>
@@ -62,3 +80,4 @@
     	<script src="../javascript/script.js"></script>
        
     </body>
+</html>

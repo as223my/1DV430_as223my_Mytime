@@ -17,6 +17,10 @@ window.onload = function() {
  		numberOfdays = 31; 
  	}
  	
- 	days.init(month, numberOfdays);		
+ 	days.init(month, numberOfdays);	
+ 	
+ 
+ 	
+ 		
  	
 };
