@@ -48,8 +48,7 @@ var checkLogin = {
 						}
 
                     }
-				}else{
-                        
+				}else{   
                         console.log("Läsfel, status: " + xhr.status);
                     }
 			};
