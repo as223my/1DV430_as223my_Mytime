@@ -2,12 +2,13 @@
 	
 session_start();
 
+//Om du inte är inloggad på sidan, tas du till startsidan
 if($_SESSION['username']){
 }else{
 	header('Location: ../index.php');
 }
 
-
+// Logga ut, åter till startsida
 if(isset($_POST['logout'])){
 	session_destroy();
 	header('Location: ../index.php');
@@ -25,6 +26,7 @@ if(isset($_POST['logout'])){
 		<meta name="viewport" content="width:device-width, initial-scale=1.0"  />
        	<link href='https://fonts.googleapis.com/css?family=Tangerine:700' rel='stylesheet' type='text/css'>
        	<link href='https://fonts.googleapis.com/css?family=Montaga' rel='stylesheet' type='text/css'>
+       	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     </head>
     
     <body>

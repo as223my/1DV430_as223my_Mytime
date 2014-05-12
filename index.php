@@ -7,14 +7,17 @@ if (isset($_POST['login'])){
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-
+	
 
 	// Om fälten användarnamn samt lösenord inte är tomma, kommer vi connecta till databasen.
 	if($username && $password){
 	
 		require_once("php/connectdb.php");
 		
-		$query = mysqli_query($connect,"SELECT * FROM user WHERE Username = '$username'"); 
+		//För att skydda mot skadlig sql-kod. 
+		$saferUsername = $connect->real_escape_string($username);
+		
+		$query = mysqli_query($connect,"SELECT * FROM user WHERE Username = '$saferUsername'"); 
 		$numberOfrows = mysqli_num_rows($query); 
 		
 		//Kollar om det finns en användare med det namnet. 
@@ -22,21 +25,30 @@ if (isset($_POST['login'])){
 		
 			//Sparar innehållet i Username och Password från databasen.
 			while($row = mysqli_fetch_assoc($query)){
-				
+				$id = $row['UserID']; 
 				$dbusername = $row['Username']; 
 				$dbpassword = $row['Password'];
 			}
 			
 		//Kollar så att användarnamn och lösenord matchar med databasen (dvs om användarnamnet finns att lösenordet är korrekt). Vid match loggas du in. 
-		if($username == $dbusername && $password == $dbpassword){
+		if($username == $dbusername && md5($password) == $dbpassword){
 			
 			$_SESSION['username'] = $username;
+			$_SESSION['id'] = $id;
 			
 			header("Location:html/Januari.php");
 			
 		}else{
+			if($username != $dbusername){
+				
+				$wrongName= "Fel användarnamn!";
+				echo '<div id="echoLogin"><p>'.$wrongName.'</p></div>'; 
+			}else{
+				
+			
 			$WrongPassword = "Fel lösenord!";
 			echo '<div id="echoLogin"><p>'.$WrongPassword.'</p></div>';
+			}
 		}
 		
 	}else{
@@ -77,6 +89,9 @@ else{
 	            
 	        </header>
 	        
+	        
+	        <a href="html/Registration.php" id="newUser">Ny användare? Klicka här.</a>
+	     
 	           	<form action = '' method="post">
 		            <p class="login"><label for="namn">Användarnamn</label></p>
 		            <input type="text" id="namn" name="username" />

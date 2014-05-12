@@ -10,17 +10,17 @@ var days = {
 		};
 		
 		for(var i = 0 ; i < numberOfDays; i++){
-		var allDaysDiv = document.getElementById("daysDiv");
-		var day = document.createElement("div");
-		day.className ="day";
-		
-		var number = days.fix(i) + 1;	
-		day.id = month + number; 
-		var p = document.createElement("p");
-		var text = document.createTextNode(number);
-		p.appendChild(text); 		
-		day.appendChild(p);
-		allDaysDiv.appendChild(day);
+			var allDaysDiv = document.getElementById("daysDiv");
+			var day = document.createElement("div");
+			day.className ="day";
+			
+			var number = days.fix(i) + 1;	
+			day.id = month + number; 
+			var p = document.createElement("p");
+			var text = document.createTextNode(number);
+			p.appendChild(text); 		
+			day.appendChild(p);
+			allDaysDiv.appendChild(day);
 		};
 		
 		popUp.show();

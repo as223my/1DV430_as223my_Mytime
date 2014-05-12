@@ -22,6 +22,28 @@ var popUp = {
  				
             popUpDiv.style.visibility = "hidden";
  		};
+ 		
+ 		var save = document.getElementById("spara");
+ 		save.onclick = function(){
+ 			var text = document.getElementById("textarea");
+ 			var content = text.value; 
+ 			
+ 			  $.ajax({
+              type: 'post',                    
+              url:'../php/day.php',            
+              data:{"content" : content},
+              dataType:'text',                
+              success:function()
+              {
+                alert("sparat"); 
+              },
+              error: function() {
+              	alert("ej sparat!");
+      
+          	}
+          });
+ 			
+ 		};
 		
 	}
 	
