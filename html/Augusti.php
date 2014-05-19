@@ -25,6 +25,7 @@ if(isset($_POST['logout'])){
 		<meta name="viewport" content="width:device-width, initial-scale=1.0"  />
        	<link href='https://fonts.googleapis.com/css?family=Tangerine:700' rel='stylesheet' type='text/css'>
        	<link href='https://fonts.googleapis.com/css?family=Montaga' rel='stylesheet' type='text/css'>
+              	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     </head>
     
     <body>
@@ -43,18 +44,18 @@ if(isset($_POST['logout'])){
 		        <ul>
 			  		<li class ="choiceMonth"><a href="#">Månad</a>
 			  		 	<ul>
-	            			<li><a href="Januari.html">Januari</a></li>
-				            <li><a href="Februari.html">Februari</a></li>
-				          	<li><a href="Mars.html">Mars</a></li>
-				          	<li><a href="April.html">April</a></li>
-				          	<li><a href="Maj.html">Maj</a></li>
-				          	<li><a href="Juni.html">Juni</a></li>
-				          	<li><a href="Juli.html">Juli</a></li>
-				          	<li><a href="Augusti.html">Augusti</a></li>
-				          	<li><a href="September.html">September</a></li>
-				          	<li><a href="Oktober.html">Oktober</a></li>
-				          	<li><a href="November.html">November</a></li>
-				          	<li><a href="December.html">December</a></li>
+				            <li><a href="Januari.php">Januari</a></li>
+				            <li><a href="Februari.php">Februari</a></li>
+				          	<li><a href="Mars.php">Mars</a></li>
+				          	<li><a href="April.php">April</a></li>
+				          	<li><a href="Maj.php">Maj</a></li>
+				          	<li><a href="Juni.php">Juni</a></li>
+				          	<li><a href="Juli.php">Juli</a></li>
+				          	<li><a href="Augusti.php">Augusti</a></li>
+				          	<li><a href="September.php">September</a></li>
+				          	<li><a href="Oktober.php">Oktober</a></li>
+				          	<li><a href="November.php">November</a></li>
+				          	<li><a href="December.php">December</a></li>
 			             </ul>
 			        </li>	      		
 		      	</ul>
@@ -65,13 +66,10 @@ if(isset($_POST['logout'])){
     	</div> 
  
      	<div id="popUp">
+
     		<div id ="popUpContent">
     			<button type="button" id="close">X</button>
-    		    <p class="login"><label for="titel">Titel</label></p>
-	            <input type="text" id="titel" name="Title" />
-	          	<p><textarea id ="textarea"></textarea></p>
-    			<button type="button" id="spara" class="sub">Spara</button>
-    			<p id ="dayId"></p>
+    			<h2 id ="dayId"></h2>
    			</div>
    		</div>
    		<script src="../javascript/popUp.js"></script>

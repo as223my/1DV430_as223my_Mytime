@@ -32,7 +32,6 @@ if (isset($_POST['reg'])){
 				
 				$query = mysqli_query($connect,"INSERT INTO user VALUES ('', '$saferUsername', '$password','$date')"); 
 				
-				
 				$regDone = "Du är registrerad ";
 		
 				echo '<div id="echoReg"><p>'.$regDone .'<a href="../index.php">Logga in!</a></p></div>';

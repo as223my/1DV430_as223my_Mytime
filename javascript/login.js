@@ -18,6 +18,8 @@ var checkLogin = {
 			var echoLogin = document.querySelectorAll(".echoLogin");
 			echoLogin.innerHTML = "";
 		};
+		
+		
 
 		/* loginbutton.onclick = function(){
 

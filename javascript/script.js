@@ -5,7 +5,6 @@ window.onload = function() {
  	var numberOfdays; 
  	
  	var month = document.title;
- 	console.log(month); 
  	
  	if(month === "Februari"){
  		numberOfdays = 28; 
@@ -18,9 +17,5 @@ window.onload = function() {
  	}
  	
  	days.init(month, numberOfdays);	
- 	
- 
- 	
  		
- 	
 };
