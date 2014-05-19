@@ -8,5 +8,4 @@ if($connect->connect_errno) {
 	echo $connect->connect_error;
 	die('Problem with database'); 
 }
-
 ?>
