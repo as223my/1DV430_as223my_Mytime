@@ -32,14 +32,16 @@ body{
 	border:1px solid black;
 	float:left;
 	background-color:rgba(192,192,192,0.5);
+	overflow: auto;
 }
 
-.day p, .saved p{
+.number{
 	margin-top:1%;
 	padding-left:4%;
 	color:#08644D;
 	font-family: 'Montaga';
 	font-weight:bold;
+
 }
 
 h1{
@@ -51,16 +53,19 @@ h1{
 h3{
 	margin-top:-20px;
 	font-family: 'Montaga';
-	font-size:250%;
+	font-size:200%;
 	margin-left:10px;
 	text-decoration:underline;
 		
 }
 
 #tsaved{
-	margin-left:15px;
+	margin-left:10px;
 }
 
+#t{
+	margin-top:-10px;
+}
 #LoginMyTime{
 	font-family: 'Tangerine';
 	font-size:800%;
@@ -136,8 +141,20 @@ input#namn, input#losen, input#losen1{
      margin-right:auto;
      border:5px solid #800000;
      background-color:rgba(255,255,255,1.0);
-
      
+}
+
+#savedDiv{
+	height:370px;
+	overflow:auto;
+	margin-top:-25px;
+	background-color:rgba(8,100,77,0.05);
+	margin-left:-10px;
+
+}
+
+#titelContent{
+	margin-left:0px;
 }
 
 input#titel{
@@ -147,21 +164,24 @@ input#titel{
 #textarea{
 	width:95%;
 	height:340px
+
 }
 
 #spara{
 	position:relative;
-	margin-top:-10px;
+	margin-top:-30px;
 	left:40%;
 }
 
 #change, #remove{
 	
-	margin-top:100px;
+	margin-top:13px;
 }
 
 #change{
-	margin-right:100px;
+	margin-right:10%;
+	margin-left:30%;
+
 }
 
 
@@ -226,12 +246,46 @@ input#titel{
 	background-color:#D9D9D9;
 }
 
-#heads{
+.dayTitel{
 	color:black;
 	margin-top:-10px;
-
+	padding-left:4%;
+	font-family: 'Montaga';
+	font-weight:bold;
 }
 
 .saved{
 	background-color:white;
+}
+
+#pmax,#pmax1{
+	color:#7C7F7F;
+	font-size:12px;
+}
+
+#pmax{
+	margin-top:-1px;
+}
+
+#pmax1{
+	margin-top:-20px;
+}
+
+#gallerybutton{
+	position:absolute;
+	z-index:1;
+	top:0;
+	right:20%;
+	padding:10px;
+
+}
+
+#goBack{
+	font-family: 'Montaga';
+	font-weight:bold;
+	color:black;
+	position:absolute;
+	z-index:1;
+	top:1%;
+	left:3%;
 }

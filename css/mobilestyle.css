@@ -27,15 +27,28 @@ body{
 	border:1px solid black;
 	float:left;
 	background-color:rgba(192,192,192,0.5);
+	overflow: auto;
 	}
 
-.day p, .saved p{
+.number{
 	margin-top:-1px;
 	padding-left:2px;
 	color:#08644D;
 	font-family: 'Montaga';
 	font-weight:bold;
+	font-size:12px;
 	}
+	
+.dayTitel{
+	
+	margin-top:-10px;
+	padding-left:2px;
+	color:black;
+	font-family: 'Montaga';
+	font-weight:bold;
+	font-size:12px;
+	
+}
 
 h1{
 	font-family: 'Tangerine';
@@ -149,7 +162,7 @@ nav a:active{
 #popUpContent{
 	padding-left:10px;
      width:90%;
-     height:400px;
+     height:420px;
      margin-top:200px;
      margin-left:auto;
      margin-right:auto;
@@ -165,11 +178,12 @@ input#titel{
 #textarea{
 	width:95%;
 	height:250px;
+	margin-top:-5px;
 }
 
 #spara{
 	position:relative;
-	margin-top:-15px;
+	margin-top:-30px;
 	left:40%;
 	margin-left:-20px;
 }
@@ -252,13 +266,47 @@ input#titel{
 	background-color:white;
 }
 
+#tsaved{
+	margin-left:10px;
+}
+
 
 
 #change, #remove{
 	
-	margin-top:50px;
+	margin-top:10px;
 }
 
 #change{
-	margin-right:50px;
+	margin-left:10%;
+	margin-right:10%;
+}
+
+
+
+
+#savedDiv{
+	height:295px;
+	overflow:auto;
+	margin-top:-10px;
+	background-color:rgba(8,100,77,0.05);
+	margin-left:-10px;
+
+}
+
+#titelContent{
+	margin-left:0px;
+}
+
+#pmax,#pmax1{
+	color:#7C7F7F;
+	font-size:12px;
+}
+
+#pmax{
+	margin-top:-1px;
+}
+
+#pmax1{
+	margin-top:-20px;
 }

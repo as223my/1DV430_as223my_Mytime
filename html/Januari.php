@@ -38,6 +38,7 @@ if(isset($_POST['logout'])){
 	       		<h1>Januari - 2014</h1>
 	       	</header>
 	       	<form action = '' method="post"><input type="submit" name="logout" id="Logout" class = "sub" value="Logga ut"></form>
+	       	<a href="Gallery.php"> <button class = "sub" id = "gallerybutton">Bilder</button> </a>
 	     
 	       	
 	        <a href="Februari.php" class="right">></a>
@@ -72,6 +73,7 @@ if(isset($_POST['logout'])){
     		<div id ="popUpContent">
     			<button type="button" id="close">X</button>
     			<h2 id ="dayId"></h2>
+    			
    			</div>
    		</div>
    		<script src="../javascript/popUp.js"></script>

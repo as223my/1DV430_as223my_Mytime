@@ -2,8 +2,6 @@
 
 var days = {
 		
-	saved: [],
-	
 	init:function(month, numberOfDays){	
 		
 		//Skapar forEach om detta inte finns i webbläsaren, så att man kan använda detta i till arrayen. 
@@ -15,30 +13,34 @@ var days = {
 			var allDaysDiv = document.getElementById("daysDiv");
 			var day = document.createElement("div");
 			day.className ="day";
-			
 			var number = days.fix(i) + 1;	
 			day.id = number; 
 			var p = document.createElement("p");
+			p.className = "number";
 			var text = document.createTextNode(number);
+			var p1 = document.createElement("p");
+			var count = i + 1; 
+			p1.id = "head" + count;
+			p1.className = "dayTitel"; 
 			p.appendChild(text); 		
 			day.appendChild(p);
+			day.appendChild(p1);
 			allDaysDiv.appendChild(day);
 		};
 
 		
 		var title = $.ajax({
-              type: 'get',                    
+              type: 'post',                    
               url:'../php/title.php',                         
               success:function(){
       
- 				 var responsetext = title.responseText;
-                 var text = JSON.parse(responsetext);
+ 				var responsetext = title.responseText;
+                var text = JSON.parse(responsetext);
 				for(var obj in text){
 					
 					if(text[obj].Month === month){
 					
 						var id = text[obj].Day;
-						document.getElementById(id).className = "saved";
 						var head = text[obj].Head;
 						days.title(id, head); 
 					}
@@ -51,21 +53,20 @@ var days = {
           	}
           });
 				
-}, 
+	},
+	 
 	fix:function(n) {
 		return n;
 	},
 	
 	title:function(id, head){
-		days.saved.push(id);	
-		var div = document.getElementById(id);	
-		var p = document.createElement("p");
-		p.id = "heads"; 
+		
+		document.getElementById(id).className = "saved";
+		var div = document.getElementById(id);
+		var p = document.getElementById("head" + id);
 		var text = document.createTextNode(head);
 		p.appendChild(text); 
-		div.appendChild(p);
-	
+		div.appendChild(p);	
 		
-	}
-	
+		}
 };

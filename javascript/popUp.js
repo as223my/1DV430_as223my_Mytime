@@ -4,27 +4,24 @@ var popUp = {
 	
 	allDaysId : [],
 	place : [], 
-
 	
 	show:function(month){
 					
-		var saved = document.querySelectorAll(".saved"); 		
+		var saved = document.querySelectorAll(".saved, .day"); 		
 		var popUpDiv = document.getElementById("popUp");
 		saved.forEach(function(a){	 
-			a.addEventListener("click", function(e){
+			a.addEventListener("click", function (e) {
 				e.preventDefault();
 				popUpDiv.style.visibility = "visible";
-				var dayId = document.getElementById("dayId");
-				dayId.innerHTML = month + " " + a.id;
-				popUp.showContent(a.id, month);
+				popUp.check(a.id, month, a.className);
 				
 			});	  	
 		});
 		
 	
-		var notsaved = document.querySelectorAll(".day"); 		
+	/*	var notsaved = document.querySelectorAll(".day"); 		
 		notsaved.forEach(function(a){	 
-			a.addEventListener("click", function(e){
+			a.addEventListener("click", function dag(e){
 				e.preventDefault();
 				popUpDiv.style.visibility = "visible";
 				var dayId = document.getElementById("dayId");
@@ -32,9 +29,23 @@ var popUp = {
 				popUp.nothingSaved(a.id, month);
 				
 			});	  	
-		});
-		
+		});*/
+	},
 	
+	check:function(id, month, classN){
+
+	/*	var p = document.getElementById("head" + id);
+		p.parentNode.removeChild(p);*/
+		
+		var dayId = document.getElementById("dayId");
+		dayId.innerHTML = month + " " +  id;
+		
+		if(classN === "day"){
+			popUp.nothingSaved(id,month);
+		}
+		if(classN === "saved"){
+			popUp.showContent(id, month);
+		}
 		
 	},
 	
@@ -49,7 +60,13 @@ var popUp = {
        	textarea.parentNode.removeChild(textarea);
        	
        	var spara = document.getElementById("spara");
-       	spara.parentNode.removeChild(spara);	
+       	spara.parentNode.removeChild(spara);
+       	
+       	var pmax = document.getElementById("pmax");
+       	pmax.parentNode.removeChild(pmax);	
+       	
+       	var pmax1 = document.getElementById("pmax1");
+       	pmax1.parentNode.removeChild(pmax1);
 	},
 	
 	
@@ -64,7 +81,10 @@ var popUp = {
        	change.parentNode.removeChild(change);
        	
        	var remove = document.getElementById("remove");
-       	remove.parentNode.removeChild(remove);		
+       	remove.parentNode.removeChild(remove);	
+       	
+       	var div = document.getElementById("savedDiv");
+       	div.parentNode.removeChild(div);	
 	},
 	
 
@@ -77,12 +97,22 @@ var popUp = {
 		
 		var input = document.createElement("input");
 		input.setAttribute('type', 'text');
+		input.setAttribute('maxlength', '30');
 		input.id = "titel";
+		
+		var pmax = document.createElement("p");
+		pmax.innerHTML = "Max 30 tecken";
+		pmax.id = "pmax"; 
 
 		
 		var p1 = document.createElement("p");
 		var textarea = document.createElement("textarea");
 		textarea.id = "textarea"; 
+		textarea.setAttribute('maxlength', '4000');
+		
+		var pmax1 = document.createElement("p");
+		pmax1.innerHTML = "Max 4000 tecken";
+		pmax1.id = "pmax1"; 
 		
 		p1.appendChild(textarea); 
 		
@@ -94,14 +124,23 @@ var popUp = {
 		var popUpc = document.getElementById("popUpContent");
 		popUpc.appendChild(p);
 		popUpc.appendChild(input);
+		popUpc.appendChild(pmax);
 		popUpc.appendChild(p1);
+		popUpc.appendChild(pmax1);
 		popUpc.appendChild(button);
+		
+	
 		
 		var save = document.getElementById("spara");
  		save.onclick = function(){
  			
  			var titel = document.getElementById("titel");
  			var titelcontent = titel.value;
+ 			
+ 			if (titelcontent.trim() === ""){
+ 				
+ 				alert("Fyll i titel!");
+ 			}else{
  			
  			var text = document.getElementById("textarea");
  			var content = text.value;
@@ -117,8 +156,15 @@ var popUp = {
                 alert("sparat"); 
                 var popUpDiv = document.getElementById("popUp");
 				popUpDiv.style.visibility = "hidden";
-	            popUp.deletecontent(); 
-	           	window.location.reload();
+	            popUp.deletecontent();
+	            days.title(day,titelcontent);
+	            console.log(day,month,this.className); 
+	            popUp.check(day,month,this.className);
+	            
+	  
+	      
+	   		
+	           	//window.location.reload();
 
               },
               error: function() {
@@ -126,8 +172,9 @@ var popUp = {
       
           	}
           });
-          
+         }
         };
+       
         
         var close = document.getElementById("close");
 		close.onclick = function(){
@@ -136,9 +183,11 @@ var popUp = {
             popUp.deletecontent();
 			
 		};	
+		
 	},
 	
 	showContent:function(day, month){
+		
 		 
           var allContent = $.ajax({
               type: 'post',                    
@@ -170,7 +219,7 @@ var popUp = {
 			popUpDiv.style.visibility = "hidden";
             popUp.deletecontent1();
           };
-                  
+                
        
  	
 		
@@ -182,13 +231,20 @@ var popUp = {
 		var h3 = document.createElement("h3");
 		h3.id = "titelContent";
 		h3.innerHTML = head; 
+		
+		var div = document.createElement("div");
+		div.id = "savedDiv"; 
 					
 		var p = document.createElement("p");
 		p.id = "tsaved"; 
 		p.innerHTML = content; 
 					
 		popUpc.appendChild(h3);
-		popUpc.appendChild(p);
+		popUpc.appendChild(div);
+		
+		var savedDiv = document.getElementById("savedDiv");
+		
+		savedDiv.appendChild(p);
 					
 		var button = document.createElement("button");
 		button.id = "change";
@@ -202,6 +258,7 @@ var popUp = {
 					
 		popUpc.appendChild(button);
 		popUpc.appendChild(button1);
+	
 					
 		var remove = document.getElementById("remove");
 		remove.onclick = function(){
@@ -218,7 +275,12 @@ var popUp = {
 	              		var popUpDiv = document.getElementById("popUp");
 						popUpDiv.style.visibility = "hidden";
             			popUp.deletecontent1();
-            			window.location.reload();
+            			document.getElementById(day).className = "day";
+            			
+            			var p = document.getElementById("head" + day);
+						p.innerHTML = "";
+            			popUp.check(day, month, this.className); 
+            			//window.location.reload();
 	      			},
               	error: function(){
               		alert("ej borttaget!");
@@ -241,14 +303,22 @@ var popUp = {
 		
 			var input = document.createElement("input");
 			input.setAttribute('type', 'text');
+			input.setAttribute('maxlength', '30');
 			input.id = "titel";
 			input.value = head;
 
+			var pmax = document.createElement("p");
+			pmax.innerHTML = "Max 30 tecken";
+			pmax.id = "pmax";
 		
 			var p1 = document.createElement("p");
 			var textarea = document.createElement("textarea");
 			textarea.id = "textarea"; 
 			textarea.value = content;
+			textarea.setAttribute('maxlength', '4000');
+			var pmax1 = document.createElement("p");
+			pmax1.innerHTML = "Max 4000 tecken";
+			pmax1.id = "pmax1"; 
 		
 			p1.appendChild(textarea); 
 		
@@ -260,7 +330,9 @@ var popUp = {
 			var popUpc = document.getElementById("popUpContent");
 			popUpc.appendChild(p);
 			popUpc.appendChild(input);
+			popUpc.appendChild(pmax);
 			popUpc.appendChild(p1);
+			popUpc.appendChild(pmax1);
 			popUpc.appendChild(button);
 			
 			var close = document.getElementById("close");
@@ -279,6 +351,10 @@ var popUp = {
  			var titels = document.getElementById("titel");
  			var tis = titels.value;
  			
+ 			if(tis.trim() === ""){
+ 				alert("Fyll i titel!"); 
+ 			}else{
+ 			
  			var texts = document.getElementById("textarea");
  			var contents = texts.value;
 			
@@ -294,7 +370,10 @@ var popUp = {
                 var popUpDiv = document.getElementById("popUp");
 				popUpDiv.style.visibility = "hidden";
             	popUp.deletecontent();
-            	window.location.reload();
+            	var p = document.getElementById("head" + day);
+				p.innerHTML = "";
+				days.title(day,tis);
+            	popUp.check(day, month, this.className); 
 
               },
               error: function() {
@@ -302,6 +381,8 @@ var popUp = {
       
           	}
           });
+      
+         }
     	    };	
             
 		};
