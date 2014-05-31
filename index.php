@@ -92,14 +92,14 @@ else{
 	        
 	        <a href="html/Registration.php" id="newUser">Ny användare? Klicka här.</a>
 	     
-	           	<form action = '' method="post">
+	           	<form action = 'index.php' method="post">
 		            <p class="login"><label for="namn">Användarnamn</label></p>
 		            <input type="text" id="namn" name="username" />
 		                    
-		            <p class="login"><label for="lösen">Lösenord</label></p>
+		            <p class="login"><label for="losen">Lösenord</label></p>
 		            <input type="password" id="losen" name="password" />
 		    
-	            	<p><input type = "submit" class= "sub" name = "login" value="Logga in" /></p> 
+	            	<p><input type = "submit" class= "buttonGreen" name = "login" id = "loginButton" value="Logga in" /></p> 
             	
             	</form>
         		

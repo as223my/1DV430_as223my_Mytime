@@ -9,7 +9,6 @@ $day = $_POST['day'];
 $month = $_POST['month']; 
 $id = $_SESSION['id']; 
 
-
 $query = mysqli_query($connect,"UPDATE day SET Head = '$titel', Content = '$content' WHERE UserID = '$id' AND Month = '$month' AND Day = '$day'"); 
 
 ?>

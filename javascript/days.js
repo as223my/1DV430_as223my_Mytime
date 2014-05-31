@@ -28,7 +28,6 @@ var days = {
 			allDaysDiv.appendChild(day);
 		};
 
-		
 		var title = $.ajax({
               type: 'post',                    
               url:'../php/title.php',                         
@@ -47,11 +46,11 @@ var days = {
 				}
 					popUp.show(month);
               },
-              error: function() {
-              	alert("error!");
+              error: function(){
+              	alert("Kunde inte hämta sparade dagar i databasen!");
       
           	}
-          });
+     	});
 				
 	},
 	 
@@ -68,5 +67,5 @@ var days = {
 		p.appendChild(text); 
 		div.appendChild(p);	
 		
-		}
+	}
 };

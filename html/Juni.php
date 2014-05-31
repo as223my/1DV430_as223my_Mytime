@@ -36,8 +36,8 @@ if(isset($_POST['logout'])){
 	       		<h1>Juni - 2014</h1>
 
 	       	</header>
-	       	<form action = '' method="post"><input type="submit" name="logout" id="Logout" class = "sub" value="Logga ut"></form>
-	       	<a href="Gallery.php"> <button class = "sub" id = "gallerybutton">Bilder</button> </a>
+	       	<form action = 'Juni.php' method="post"><input type="submit" name="logout" id="Logout" class = "buttonRed" value="Logga ut"></form>
+	       	<a href="Gallery.php" id="galleryA"> <button id = "gallerybutton" class ="buttonToGallery">Bilder</button></a>
 	       	
 	        <a href="Juli.php" class="right">></a>
 	        <a href="Maj.php" class="left">&lt</a>

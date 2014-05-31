@@ -35,13 +35,14 @@ if(isset($_POST['logout'])){
       		<header>
 	        	<h1>Mina bilder</h1>
 	        </header>
-	        <form action = '' method="post"><input type="submit" name="logout" id="Logout" class = "sub" value="Logga ut"></form>
+	        <form action = 'Gallery.php' method="post"><input type="submit" name="logout" id="Logout" class = "buttonRed" value="Logga ut"></form>
 	        <a href="javascript:history.back()" id="goBack">Gå tillbaka</a>
 	        
-	      <form action = '' method="post" enctype="multipart/form-data" > <input type = "file" class= "sub" name = "image" />
-	      	<input type="submit" name="addImage" class = "sub" value="Spara bild">
+	      <form action = 'Gallery.php' method="post" enctype="multipart/form-data" ><p><input type = "file" name = "image" />
+	      	<label for="textToPicture">Bildtext:</label><input type="text" id="textInput" name="textToPicture" maxlength="30"/></p>
+	      	<p><input type="submit" name="addImage" class = "buttonGreen" value="Spara bild"></p>
 	      </form>
-			<input type="button" id ="updateImage" class = "sub" value="Updatera sidan">
+			<input type="button" id="eraseAll" class = "buttonRed" value="Radera alla bilder">
 <?php
 	
 if(isset($_POST['addImage'])){
@@ -61,12 +62,14 @@ $file = $_FILES['image']['tmp_name'];
 			
 		$size = getimagesize($_FILES['image']['tmp_name']);
 		$id = $_SESSION['id']; 
+		$text = $_POST['textToPicture'];
+		$textSafe = $connect->real_escape_string($text);
 		
 		if($size === FALSE){
 			echo "<p />Det där är ingen bild!";
 		}else{
 			
-			$query = mysqli_query($connect,"INSERT INTO picture VALUES ('', '$id','', '$nameSafe','$imageSafe')");
+			$query = mysqli_query($connect,"INSERT INTO picture VALUES ('', '$id','$textSafe', '$nameSafe','$imageSafe')");
 			echo "bilden är sparad!"; 
 		}	
 	}
@@ -84,7 +87,8 @@ $rows = array();
     	
         $rows[] = $row;
         $picId = $row['PictureID'];
-       echo "<p /><p /><img src = ../php/getImage.php?id=$picId>";
+        $textPicture = $row['Text'];
+       echo "<p id = picture$picId><img src = ../php/getImage.php?id=$picId></p><p id = text$picId class = textPicture>$textPicture</p> <button onclick=gallery.erase($picId); class = erasePicButton>Radera</button>";
     }
     
 }	

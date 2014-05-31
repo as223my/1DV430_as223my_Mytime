@@ -70,7 +70,7 @@ if (isset($_POST['reg'])){
 				<h1 id ="Welcome">Välkommen till MyTime!</h1>
 	       	</header>
 	       	
-	       		<form action = '' method="post">
+	       		<form action = 'Registration.php' method="post">
 		            <p class="login"><label for="namn">Välj användarnamn</label></p>
 		            <input type="text" id="namn" name="username" maxlength="30"/>
 		                    
@@ -80,7 +80,8 @@ if (isset($_POST['reg'])){
 		            <p class="login"><label for="losen1">Upprepa valt lösenord</label></p>
 		            <input type="password" id="losen1" name="password1" maxlength="30"/>
 		    
-	            	<p><input type = "submit" class= "sub" id="regbutton" name = "reg" value="Registrera" /></p> 
+	            	<p><input type = "submit" class= "buttonGreen" id="regbutton" name = "reg" value="Registrera" /></p> 
+	            	<a href="../index.php" id="goBack">Gå tillbaka</a>
             	
             	</form>   
     	</div> 

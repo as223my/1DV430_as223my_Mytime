@@ -2,9 +2,6 @@
 
 var popUp = {
 	
-	allDaysId : [],
-	place : [], 
-	
 	show:function(month){
 					
 		var saved = document.querySelectorAll(".saved, .day"); 		
@@ -13,29 +10,12 @@ var popUp = {
 			a.addEventListener("click", function (e) {
 				e.preventDefault();
 				popUpDiv.style.visibility = "visible";
-				popUp.check(a.id, month, a.className);
-				
+				popUp.check(a.id, month, a.className);	
 			});	  	
 		});
-		
-	
-	/*	var notsaved = document.querySelectorAll(".day"); 		
-		notsaved.forEach(function(a){	 
-			a.addEventListener("click", function dag(e){
-				e.preventDefault();
-				popUpDiv.style.visibility = "visible";
-				var dayId = document.getElementById("dayId");
-				dayId.innerHTML = month + " " + a.id;
-				popUp.nothingSaved(a.id, month);
-				
-			});	  	
-		});*/
 	},
 	
 	check:function(id, month, classN){
-
-	/*	var p = document.getElementById("head" + id);
-		p.parentNode.removeChild(p);*/
 		
 		var dayId = document.getElementById("dayId");
 		dayId.innerHTML = month + " " +  id;
@@ -46,7 +26,6 @@ var popUp = {
 		if(classN === "saved"){
 			popUp.showContent(id, month);
 		}
-		
 	},
 	
 	deletecontent:function(){
@@ -59,8 +38,8 @@ var popUp = {
        	var textarea = document.getElementById("textarea");
        	textarea.parentNode.removeChild(textarea);
        	
-       	var spara = document.getElementById("spara");
-       	spara.parentNode.removeChild(spara);
+       	var saveContent = document.getElementById("spara");
+       	saveContent.parentNode.removeChild(saveContent);
        	
        	var pmax = document.getElementById("pmax");
        	pmax.parentNode.removeChild(pmax);	
@@ -118,7 +97,7 @@ var popUp = {
 		
 		var button = document.createElement("button");
 		button.id = "spara";
-		button.setAttribute('class', 'sub');
+		button.setAttribute('class', 'buttonGreen');
 		button.innerHTML = "Spara";
 		
 		var popUpc = document.getElementById("popUpContent");
@@ -128,9 +107,7 @@ var popUp = {
 		popUpc.appendChild(p1);
 		popUpc.appendChild(pmax1);
 		popUpc.appendChild(button);
-		
 	
-		
 		var save = document.getElementById("spara");
  		save.onclick = function(){
  			
@@ -142,52 +119,40 @@ var popUp = {
  				alert("Fyll i titel!");
  			}else{
  			
- 			var text = document.getElementById("textarea");
- 			var content = text.value;
+ 				var text = document.getElementById("textarea");
+ 				var content = text.value;
 
  			
- 		$.ajax({
-              type: 'post',                    
-              url:'../php/day.php',            
-              data:{"content" : content, "titel" : titelcontent, "day" : day, "month" : month},
-              dataType:'text',                
-              success:function()
-              {
-                alert("sparat"); 
-                var popUpDiv = document.getElementById("popUp");
-				popUpDiv.style.visibility = "hidden";
-	            popUp.deletecontent();
-	            days.title(day,titelcontent);
-	            console.log(day,month,this.className); 
-	            popUp.check(day,month,this.className);
-	            
-	  
-	      
-	   		
-	           	//window.location.reload();
-
-              },
-              error: function() {
-              	alert("ej sparat!");
-      
-          	}
-          });
-         }
-        };
+ 				$.ajax({
+              		type: 'post',                    
+              		url:'../php/day.php',            
+              		data:{"content" : content, "titel" : titelcontent, "day" : day, "month" : month},
+              		dataType:'text',                
+              		success:function(){
+              	
+                		var popUpDiv = document.getElementById("popUp");
+						popUpDiv.style.visibility = "hidden";
+	            		popUp.deletecontent();
+	            		days.title(day,titelcontent);
+	            		popUp.check(day,month,this.className);
+              		},
+              
+             	error: function(){
+              		alert("Kunde ej spara innehållet i dagen!");
+          		}	
+         	});
+  		}
+  	};
        
-        
         var close = document.getElementById("close");
 		close.onclick = function(){
 			var popUpDiv = document.getElementById("popUp");
 			popUpDiv.style.visibility = "hidden";
-            popUp.deletecontent();
-			
+            popUp.deletecontent();	
 		};	
-		
 	},
 	
 	showContent:function(day, month){
-		
 		 
           var allContent = $.ajax({
               type: 'post',                    
@@ -202,27 +167,21 @@ var popUp = {
 					
 					var head = text[obj].Head;
 					var content = text[obj].Content;
-					
 					popUp.renderContent(day, month, head, content);
-					
 				}
 					
-              },
-              error: function() {
-              	alert("error!");
-      
+           	},
+         	error: function(){
+              	alert("Kunde ej hämta sparat innehåll från databasen!");
           	}
-          });
+     	});
+     	
  		var close = document.getElementById("close");
 		close.onclick = function(){
 			var popUpDiv = document.getElementById("popUp");
 			popUpDiv.style.visibility = "hidden";
             popUp.deletecontent1();
-          };
-                
-       
- 	
-		
+      	};	
 	},
 	
 	renderContent:function(day, month, head, content){
@@ -248,12 +207,12 @@ var popUp = {
 					
 		var button = document.createElement("button");
 		button.id = "change";
-		button.setAttribute('class', 'sub');
+		button.setAttribute('class', 'buttonGreen');
 		button.innerHTML = "Ändra";
 					
 		var button1 = document.createElement("button");
 		button1.id = "remove";
-		button1.setAttribute('class', 'sub');
+		button1.setAttribute('class', 'buttonRed');
 		button1.innerHTML = "Ta bort";
 					
 		popUpc.appendChild(button);
@@ -271,7 +230,6 @@ var popUp = {
 	              	data:{"day" : day, "month" : month},
 	              	dataType:'text',                          
 	              	success:function(){
-	              		alert("borttaget!");
 	              		var popUpDiv = document.getElementById("popUp");
 						popUpDiv.style.visibility = "hidden";
             			popUp.deletecontent1();
@@ -280,18 +238,18 @@ var popUp = {
             			var p = document.getElementById("head" + day);
 						p.innerHTML = "";
             			popUp.check(day, month, this.className); 
-            			//window.location.reload();
+            	
 	      			},
               	error: function(){
-              		alert("ej borttaget!");
+              		alert("Innehållet kunde ej tas bort!");
       			}
           });
 					
-			}else{}
+		}else{}
 			
-        };
+  	};
         
-        var change = document.getElementById("change");
+   		var change = document.getElementById("change");
 		change.onclick = function(){
 			var popUpDiv = document.getElementById("popUp");
             popUp.deletecontent1();
@@ -324,7 +282,7 @@ var popUp = {
 		
 			var button = document.createElement("button");
 			button.id = "spara";
-			button.setAttribute('class', 'sub');
+			button.setAttribute('class', 'buttonGreen');
 			button.innerHTML = "Spara Ändringar";
 		
 			var popUpc = document.getElementById("popUpContent");
@@ -336,61 +294,51 @@ var popUp = {
 			popUpc.appendChild(button);
 			
 			var close = document.getElementById("close");
-		close.onclick = function(){
-			var popUpDiv = document.getElementById("popUp");
-			popUpDiv.style.visibility = "hidden";
-            popUp.deletecontent();
-            popUp.deletecontent1();
-            popUp.renderContent(day,month,head,content); 
-            
+			close.onclick = function(){
+				var popUpDiv = document.getElementById("popUp");
+				popUpDiv.style.visibility = "hidden";
+	            popUp.deletecontent();
+	            popUp.deletecontent1();
+	            popUp.renderContent(day,month,head,content);  
           };
 		
 			var save = document.getElementById("spara");
  			save.onclick = function(){
  			
- 			var titels = document.getElementById("titel");
- 			var tis = titels.value;
- 			
- 			if(tis.trim() === ""){
- 				alert("Fyll i titel!"); 
- 			}else{
- 			
- 			var texts = document.getElementById("textarea");
- 			var contents = texts.value;
+	 			var titels = document.getElementById("titel");
+	 			var tis = titels.value;
+	 			
+	 			if(tis.trim() === ""){
+	 				alert("Fyll i titel!"); 
+	 			}else{
+	 			
+	 				var texts = document.getElementById("textarea");
+	 				var contents = texts.value;
 			
- 			
- 		$.ajax({
-              type: 'post',                    
-              url:'../php/change.php',            
-              data:{"content" : contents, "titel" : tis, "day" : day, "month" : month},
-              dataType:'text',                
-              success:function()
-              {
-                alert("sparat ändringar"); 
-                var popUpDiv = document.getElementById("popUp");
-				popUpDiv.style.visibility = "hidden";
-            	popUp.deletecontent();
-            	var p = document.getElementById("head" + day);
-				p.innerHTML = "";
-				days.title(day,tis);
-            	popUp.check(day, month, this.className); 
-
-              },
-              error: function() {
-              	alert("ej sparat ändringar!");
-      
-          	}
-          });
-      
-         }
-    	    };	
+ 					$.ajax({
+		              	type: 'post',                    
+		             	url:'../php/change.php',            
+		              	data:{"content" : contents, "titel" : tis, "day" : day, "month" : month},
+		              	dataType:'text',                
+		              	success:function(){
             
-		};
-					
-					
-		
+			                var popUpDiv = document.getElementById("popUp");
+							popUpDiv.style.visibility = "hidden";
+			            	popUp.deletecontent();
+			            	var p = document.getElementById("head" + day);
+							p.innerHTML = "";
+							days.title(day,tis);
+			            	popUp.check(day, month, this.className);
+              			},
+              			error: function(){
+              				alert("Kunde ej spara ändringarna!");
+     					}
+       				});
+         		}
+   			};	   
+		};				
 	}
-	};
+};
 	
 	
 	
