@@ -30,19 +30,22 @@ if(isset($_POST['logout'])){
     
     <body>
     
-    	<div id="container">
+    	<div id="containerGallery">
     		
       		<header>
-	        	<h1>Mina bilder</h1>
+	        	<h1 id = "h1Gallery">Mina bilder</h1>
 	        </header>
+	        
 	        <form action = 'Gallery.php' method="post"><input type="submit" name="logout" id="Logout" class = "buttonRed" value="Logga ut"></form>
 	        <a href="javascript:history.back()" id="goBack">Gå tillbaka</a>
 	        
-	      <form action = 'Gallery.php' method="post" enctype="multipart/form-data" ><p><input type = "file" name = "image" />
-	      	<label for="textToPicture">Bildtext:</label><input type="text" id="textInput" name="textToPicture" maxlength="30"/></p>
-	      	<p><input type="submit" name="addImage" class = "buttonGreen" value="Spara bild"></p>
+	 
+	      <form action = 'Gallery.php' method="post" enctype="multipart/form-data" ><p><input type = "file" name = "image" id ="fileInput"/></p>
+	      	<label for="textToPicture">Bildtext: </label><input type="text" id="textInput" name="textToPicture" maxlength="50"/>
+	      	<p><input type="submit" name="addImage" class = "buttonGreen" id="savePicture" value="Spara bild">
+	      	<input type="button" id="eraseAll" class = "buttonRed" value="Radera alla bilder"></p>
 	      </form>
-			<input type="button" id="eraseAll" class = "buttonRed" value="Radera alla bilder">
+	
 <?php
 	
 if(isset($_POST['addImage'])){
@@ -51,7 +54,7 @@ require_once("../php/connectdb.php");
 $file = $_FILES['image']['tmp_name'];
 
 	if ($file === ""){
-		echo "<p /> Välj en bild!"; 
+		echo "<p id = NoPicture> Välj en bild!</p>"; 
 	}else{
 		
 		$image = file_get_contents($_FILES['image']['tmp_name']);
@@ -66,11 +69,11 @@ $file = $_FILES['image']['tmp_name'];
 		$textSafe = $connect->real_escape_string($text);
 		
 		if($size === FALSE){
-			echo "<p />Det där är ingen bild!";
+			echo "<p id = NoPicture>Det där är ingen bild!</p>";
 		}else{
 			
 			$query = mysqli_query($connect,"INSERT INTO picture VALUES ('', '$id','$textSafe', '$nameSafe','$imageSafe')");
-			echo "bilden är sparad!"; 
+			
 		}	
 	}
 }
@@ -88,13 +91,13 @@ $rows = array();
         $rows[] = $row;
         $picId = $row['PictureID'];
         $textPicture = $row['Text'];
-       echo "<p id = picture$picId><img src = ../php/getImage.php?id=$picId></p><p id = text$picId class = textPicture>$textPicture</p> <button onclick=gallery.erase($picId); class = erasePicButton>Radera</button>";
+       echo "<div class = pictureDiv><img src = ../php/getImage.php?id=$picId><p class = textPicture>$textPicture</p> <button onclick=gallery.erase($picId); class = erasePicButton>Ta bort</button></div>";
     }
     
 }	
 ?>
     		
-	
+	</div>
 	<script src="../javascript/gallery.js"></script>
     </body>
 </html>

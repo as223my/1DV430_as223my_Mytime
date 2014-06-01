@@ -14,8 +14,8 @@ var checkLogin = {
 
 		pass.onfocus = function(){
 	
-			var echoLogin = document.querySelectorAll(".echoLogin");
-			echoLogin.innerHTML = "";
+			var echoLogin = document.getElementById("echoLogin");
+			echoLogin.innerHTML ="";
 		};		
 	}	
 };
