@@ -3,7 +3,7 @@
 var gallery = {
 	
 	eraseAll:function(){
-		
+
 		var removeAll = document.getElementById("eraseAll");
 		removeAll.onclick = function(){
 			

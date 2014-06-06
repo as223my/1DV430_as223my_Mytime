@@ -107,6 +107,8 @@ var popUp = {
 		popUpc.appendChild(p1);
 		popUpc.appendChild(pmax1);
 		popUpc.appendChild(button);
+		
+		document.getElementById("titel").focus();
 	
 		var save = document.getElementById("spara");
  		save.onclick = function(){

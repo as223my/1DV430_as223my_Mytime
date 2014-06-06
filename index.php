@@ -36,7 +36,7 @@ if (isset($_POST['login'])){
 			$_SESSION['username'] = $username;
 			$_SESSION['id'] = $id;
 			
-			header("Location:html/Januari.php");
+			header("Location:html/Juni.php");
 			
 		}else{
 			if($username != $dbusername){
@@ -94,7 +94,7 @@ else{
 	     
 	           	<form action = 'index.php' method="post">
 		            <p class="login"><label for="namn">Användarnamn</label></p>
-		            <input type="text" id="namn" name="username" />
+		            <input type="text" id="namn" name="username"/>
 		                    
 		            <p class="login"><label for="losen">Lösenord</label></p>
 		            <input type="password" id="losen" name="password" />
