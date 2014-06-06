@@ -2,13 +2,13 @@
 	
 session_start();
 
-//Om du inte är inloggad på sidan, tas du till startsidan
+//Om du inte är inloggad på sidan, tas du till startsidan.
 if($_SESSION['username']){
 }else{
 	header('Location: ../index.php');
 }
 
-// Logga ut, åter till startsida
+// Logga ut, åter till startsida.
 if(isset($_POST['logout'])){
 	session_destroy();
 	header('Location: ../index.php');

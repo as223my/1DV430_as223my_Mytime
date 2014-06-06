@@ -9,6 +9,7 @@ var days = {
 			NodeList.prototype.forEach = Array.prototype.forEach;
 		};
 		
+		// Renderar ut dagarna i månaden. 
 		for(var i = 0 ; i < numberOfDays; i++){
 			var allDaysDiv = document.getElementById("daysDiv");
 			var day = document.createElement("div");
@@ -28,6 +29,7 @@ var days = {
 			allDaysDiv.appendChild(day);
 		};
 
+		// Anrop med ajax för att hämta de sparade dagarnas titel. 
 		var title = $.ajax({
               type: 'post',                    
               url:'../php/title.php',                         
@@ -48,24 +50,21 @@ var days = {
               },
               error: function(){
               	alert("Kunde inte hämta sparade dagar i databasen!");
-      
           	}
-     	});
-				
+     	});			
 	},
 	 
 	fix:function(n) {
 		return n;
 	},
 	
+	// Skriver ut titel till dag. 
 	title:function(id, head){
-		
 		document.getElementById(id).className = "saved";
 		var div = document.getElementById(id);
 		var p = document.getElementById("head" + id);
 		var text = document.createTextNode(head);
 		p.appendChild(text); 
-		div.appendChild(p);	
-		
+		div.appendChild(p);		
 	}
 };

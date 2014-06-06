@@ -1,5 +1,5 @@
 <?php
-
+// Tar bort bild från db.
 require_once("../php/connectdb.php");
 
 session_start();

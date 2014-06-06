@@ -2,6 +2,7 @@
 
 var popUp = {
 	
+	// Sätter klick funktion på alla dagar. 
 	show:function(month){
 					
 		var saved = document.querySelectorAll(".saved, .day"); 		
@@ -15,6 +16,7 @@ var popUp = {
 		});
 	},
 	
+	// Kollar om dagen är sparad eller inte sen innan, beroende av det så anropas olika funktioner. 
 	check:function(id, month, classN){
 		
 		var dayId = document.getElementById("dayId");
@@ -124,7 +126,6 @@ var popUp = {
  				var text = document.getElementById("textarea");
  				var content = text.value;
 
- 			
  				$.ajax({
               		type: 'post',                    
               		url:'../php/day.php',            
@@ -170,8 +171,7 @@ var popUp = {
 					var head = text[obj].Head;
 					var content = text[obj].Content;
 					popUp.renderContent(day, month, head, content);
-				}
-					
+				}		
            	},
          	error: function(){
               	alert("Kunde ej hämta sparat innehåll från databasen!");
@@ -219,12 +219,11 @@ var popUp = {
 					
 		popUpc.appendChild(button);
 		popUpc.appendChild(button1);
-	
-					
+			
 		var remove = document.getElementById("remove");
 		remove.onclick = function(){
 			var r=confirm("Vill du verkligen radera innehållet?");
-			if (r==true){
+			if(r==true){
 					
 				$.ajax({
 	              	type: 'post',                    

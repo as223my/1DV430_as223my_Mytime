@@ -12,7 +12,6 @@ if(isset($_POST['logout'])){
 	header('Location: ../index.php');
 }
 
-
 ?>
 
 <!doctype html>
@@ -42,6 +41,7 @@ if(isset($_POST['logout'])){
 	 
 	      <form action = 'Gallery.php' method="post" enctype="multipart/form-data" ><p><input type = "file" name = "image" id ="fileInput"/></p>
 	      	<label for="textToPicture">Bildtext: </label><input type="text" id="textInput" name="textToPicture" maxlength="50"/>
+	      	<p id = "pmax2">Max 50 tecken</p>
 	      	<p><input type="submit" name="addImage" class = "buttonGreen" id="savePicture" value="Spara bild">
 	      	<input type="button" id="eraseAll" class = "buttonRed" value="Radera alla bilder"></p>
 	      </form>
@@ -51,8 +51,10 @@ if(isset($_POST['logout'])){
 if(isset($_POST['addImage'])){
 	
 require_once("../php/connectdb.php");
+	
 $file = $_FILES['image']['tmp_name'];
-
+	
+	// Om ingen fil skickats med, skrivs ett felmeddelande ut, annars fortsätter koden.
 	if ($file === ""){
 		echo "<p id = NoPicture> Välj en bild!</p>"; 
 	}else{
@@ -79,6 +81,7 @@ $file = $_FILES['image']['tmp_name'];
 }
 
 require_once("../php/connectdb.php");
+
 $id = $_SESSION['id']; 
 $picture = mysqli_query($connect,"SELECT * FROM picture WHERE UserID= '$id'"); 
 

@@ -36,7 +36,7 @@ if (isset($_POST['login'])){
 			$_SESSION['username'] = $username;
 			$_SESSION['id'] = $id;
 			
-			header("Location:html/Juni.php");
+			header("Location:pages/Juni.php");
 			
 		}else{
 			if($username != $dbusername){
@@ -90,7 +90,7 @@ else{
 	        </header>
 	        
 	        
-	        <a href="html/Registration.php" id="newUser">Ny användare? Klicka här.</a>
+	        <a href="pages/Registration.php" id="newUser">Ny användare? Klicka här.</a>
 	     
 	           	<form action = 'index.php' method="post">
 		            <p class="login"><label for="namn">Användarnamn</label></p>

@@ -1,5 +1,5 @@
 <?php
-
+// Hämtar bild från db, och byter format till image/jpeg, detta för att få en bild och inte massa tecken. 
 require_once("../php/connectdb.php");
 
 $id = $_REQUEST['id']; 

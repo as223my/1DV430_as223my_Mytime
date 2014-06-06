@@ -1,5 +1,5 @@
 <?php
-
+// Tar bort dag i db. 
 require_once("connectdb.php");
 session_start();
 

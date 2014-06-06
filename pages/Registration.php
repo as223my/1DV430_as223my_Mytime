@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['reg'])){
 	
-
 	$username = strip_tags($_POST['username']);
 	$password = strip_tags($_POST['password']);
 	$password1 = strip_tags($_POST['password1']);
@@ -35,7 +34,6 @@ if (isset($_POST['reg'])){
 				$regDone = "Du är registrerad ";
 		
 				echo '<div id="echoReg"><p>'.$regDone .'<a href="../index.php">Logga in!</a></p></div>';
-			
 			}
 		}
 		

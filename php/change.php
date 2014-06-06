@@ -1,5 +1,5 @@
 <?php
-
+// Ändrar innehåll i dag i db.
 require_once("connectdb.php");
 session_start();
 

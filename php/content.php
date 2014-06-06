@@ -1,5 +1,5 @@
 <?php
-
+// Hämtar innehåll från dag i db.
 require_once("connectdb.php");
 session_start();
 
