@@ -2,13 +2,23 @@
 ==============
 
 ##Projekt - MyTime##
-###http://as223my.github.io/MyTime
+###http://mytimecalendar.site11.com/index.php
+
+###Demostrationsfilm
+####http://youtu.be/_mSOa-aiMPI
+
 ### Vision 
-Tillagd i pdf-format som release 2014-04-13.
+Tillagd i pdf-format som release.
 
 ### Product backlog (kravspecifikation)
-Tillagd i pdf-format som release 2014-04-13.
+Tillagd i pdf-format som release.
 
 ### Iterationsplan
-Tillagd i pdf-format som release 2014-04-13.
+Tillagd i pdf-format som release.
+
+### Testrapport
+Tillagd i pdf-format som release.
+
+### Datamodellering
+Tillagd i pdf-format som release.
 
