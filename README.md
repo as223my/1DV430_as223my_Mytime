@@ -22,3 +22,9 @@ Tillagd i pdf-format som release.
 ### Datamodellering
 Tillagd i pdf-format som release.
 
+### Post Mortem
+Tillagd i pdf-format som release.
+
+### Föreläsning - Entrepenörskap, konsten att se möjligheter (missad)
+Tillagd i pdf-format som release.
+
